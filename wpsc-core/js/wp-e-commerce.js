@@ -1132,44 +1132,56 @@ jQuery(document).ready(function ($) {
 
 			form_values = jQuery(this).serialize() + '&action=' + action;
 
-			// Sometimes jQuery returns an object instead of null, using length tells us how many elements are in the object, which is more reliable than comparing the object to null
-			if ( jQuery( '#fancy_notification' ).length === 0 ) {
-				jQuery( 'div.wpsc_loading_animation', this ).css( 'visibility', 'visible' );
-			}
+			jQuery( 'div.wpsc_loading_animation', this ).css( 'visibility', 'visible' );
 
 			var success = function( response ) {
 				if ( ( response ) ) {
-					if ( response.hasOwnProperty('fancy_notification') && response.fancy_notification ) {
-						if ( jQuery( '#fancy_notification_content' ) ) {
-							jQuery( '#fancy_notification_content' ).html( response.fancy_notification );
-							jQuery( '#loading_animation').css( 'display', 'none' );
-							jQuery( '#fancy_notification_content' ).css( 'display', 'block' );
-						}
-					}
 					jQuery('div.shopping-cart-wrapper').html( response.widget_output );
 					jQuery('div.wpsc_loading_animation').css('visibility', 'hidden');
 
 					jQuery( '.cart_message' ).delay( 3000 ).slideUp( 500 );
 
-					//Until we get to an acceptable level of education on the new custom event - this is probably necessary for plugins.
+					// Until we get to an acceptable level of education on the new custom event - this is probably necessary for plugins.
 					if ( response.wpsc_alternate_cart_html ) {
 						eval( response.wpsc_alternate_cart_html );
 					}
 
-					jQuery( document ).trigger( { type : 'wpsc_fancy_notification', response : response } );
 				}
 
-				if ( jQuery( '#fancy_notification' ).length > 0 ) {
-					jQuery( '#loading_animation' ).css( "display", 'none' );
-				}
+				jQuery( document ).trigger( { 'type' : 'wpscAddedToBasket', 'response' : response } );
+
 			};
+
+			jQuery( document ).trigger( { 'type' : 'wpscAddToBasket', 'form' : this } );
 
 			jQuery.post( wpsc_ajax.ajaxurl, form_values, success, 'json' );
 
-			wpsc_fancy_notification(this);
 			return false;
 		}
 	});
+
+	// Fancy Notification: Show
+	jQuery( document ).on( 'wpscAddToBasket', function( e ) {
+		jQuery( 'div.wpsc_loading_animation' ).css( 'visibility', 'hidden' );
+		wpsc_fancy_notification( e.form );
+	} );
+
+	// Fancy Notification: Hide
+	jQuery( document ).on( 'wpscAddedToBasket', function( e ) {
+		if ( ( e.response ) ) {
+			if ( e.response.hasOwnProperty( 'fancy_notification' ) && e.response.fancy_notification ) {
+				if ( jQuery( '#fancy_notification_content' ) ) {
+					jQuery( '#fancy_notification_content' ).html( e.response.fancy_notification );
+					jQuery( '#loading_animation').css( 'display', 'none' );
+					jQuery( '#fancy_notification_content' ).css( 'display', 'block' );
+				}
+			}
+			jQuery( document ).trigger( { type : 'wpsc_fancy_notification', response : e.response } );
+		}
+		if ( jQuery( '#fancy_notification' ).length > 0 ) {
+			jQuery( '#loading_animation' ).css( 'display', 'none' );
+		}
+	} );
 
 	jQuery( 'a.wpsc_category_link, a.wpsc_category_image_link' ).click(function(){
 		product_list_count = jQuery.makeArray(jQuery('ul.category-product-list'));
