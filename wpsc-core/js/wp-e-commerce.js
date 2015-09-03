@@ -1101,8 +1101,6 @@ jQuery(document).ready(function ($) {
 		jQuery('#wpsc_checkout_gravatar').attr('src', 'https://secure.gravatar.com/avatar/'+MD5(jQuery(this).val().split(' ').join(''))+'?s=60&d=mm');
 	});
 
-	jQuery('#fancy_notification').appendTo('body');
-
 	/* Clears shipping state and billing state on body load if they are numeric */
 	$( 'input[title="shippingstate"], input[title="billingstate"]' ).each( function( index, value ){
 		var $this = $( this ), $val = $this.val();
@@ -1159,29 +1157,6 @@ jQuery(document).ready(function ($) {
 			return false;
 		}
 	});
-
-	// Fancy Notification: Show
-	jQuery( document ).on( 'wpscAddToBasket', function( e ) {
-		jQuery( 'div.wpsc_loading_animation' ).css( 'visibility', 'hidden' );
-		wpsc_fancy_notification( e.form );
-	} );
-
-	// Fancy Notification: Hide
-	jQuery( document ).on( 'wpscAddedToBasket', function( e ) {
-		if ( ( e.response ) ) {
-			if ( e.response.hasOwnProperty( 'fancy_notification' ) && e.response.fancy_notification ) {
-				if ( jQuery( '#fancy_notification_content' ) ) {
-					jQuery( '#fancy_notification_content' ).html( e.response.fancy_notification );
-					jQuery( '#loading_animation').css( 'display', 'none' );
-					jQuery( '#fancy_notification_content' ).css( 'display', 'block' );
-				}
-			}
-			jQuery( document ).trigger( { type : 'wpsc_fancy_notification', response : e.response } );
-		}
-		if ( jQuery( '#fancy_notification' ).length > 0 ) {
-			jQuery( '#loading_animation' ).css( 'display', 'none' );
-		}
-	} );
 
 	jQuery( 'a.wpsc_category_link, a.wpsc_category_image_link' ).click(function(){
 		product_list_count = jQuery.makeArray(jQuery('ul.category-product-list'));
@@ -1367,22 +1342,17 @@ function submit_change_country(){
 	document.forms.change_country.submit();
 }
 
-// submit the fancy notifications forms.
-function wpsc_fancy_notification(parent_form){
-	if(typeof(WPSC_SHOW_FANCY_NOTIFICATION) == 'undefined'){
-		WPSC_SHOW_FANCY_NOTIFICATION = true;
-	}
-	if((WPSC_SHOW_FANCY_NOTIFICATION === true) && (jQuery('#fancy_notification') !== null)){
-		jQuery('#fancy_notification').css({
-		        position:'fixed',
-		        left: (jQuery(window).width() - jQuery('#fancy_notification').outerWidth())/2,
-		        top: (jQuery(window).height() - jQuery('#fancy_notification').outerHeight())/2
-		    });
+/**
+ * Submit the fancy notifications forms.
+ *
+ * @deprecated  Use WPEC_Fancy_Notifications.fancy_notification() instead.
+ *
+ * @param  object  parent_form  Form element.
+ */
+function wpsc_fancy_notification( parent_form ) {
 
-		jQuery('#fancy_notification').css("display", 'block');
-		jQuery('#loading_animation').css("display", 'block');
-		jQuery('#fancy_notification_content').css("display", 'none');
-	}
+	console.log( 'wpsc_fancy_notification() is deprecated. Use WPEC_Fancy_Notifications.fancy_notification() instead.' );
+
 }
 
 function shopping_cart_collapser() {
