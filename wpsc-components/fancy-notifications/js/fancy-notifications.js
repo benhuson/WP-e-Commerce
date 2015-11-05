@@ -21,7 +21,7 @@ var WPEC_Fancy_Notifications;
 		/**
 		 * Fancy Notification: Show
 		 */
-		wpscAddToBasket : function( e ) {
+		wpscAddToCart : function( e ) {
 
 			$( 'div.wpsc_loading_animation' ).css( 'visibility', 'hidden' );
 			WPEC_Fancy_Notifications.fancy_notification( e.form );
@@ -57,7 +57,7 @@ var WPEC_Fancy_Notifications;
 		/**
 		 * Fancy Notification: Hide
 		 */
-		wpscAddedToBasket : function( e ) {
+		wpscAddedToCart : function( e ) {
 
 			if ( ( e.response ) ) {
 				if ( e.response.hasOwnProperty( 'fancy_notification' ) && e.response.fancy_notification ) {
@@ -82,7 +82,7 @@ var WPEC_Fancy_Notifications;
 	 * Event Handlers
 	 */
 	$( document ).on( 'ready', WPEC_Fancy_Notifications.appendToBody );
-	$( document ).on( 'wpscAddToBasket', WPEC_Fancy_Notifications.wpscAddToBasket );
-	$( document ).on( 'wpscAddedToBasket', WPEC_Fancy_Notifications.wpscAddedToBasket );
+	$( document ).on( 'wpscAddToCart', WPEC_Fancy_Notifications.wpscAddToCart );
+	$( document ).on( 'wpscAddedToCart', WPEC_Fancy_Notifications.wpscAddedToCart );
 
 } ) ( jQuery );
