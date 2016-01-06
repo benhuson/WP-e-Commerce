@@ -2354,3 +2354,48 @@ function wpsc_duplicate_product_image_process( $child_post, $new_parent_id ) {
 	$duplicate->duplicate_product_image_process();
 
 }
+
+/**
+ * Fancy Notifications
+ *
+ * @deprecated
+ *
+ * @return  string  Fancy Notification HTML.
+ */
+function fancy_notifications() {
+
+	return WPSC_Fancy_Notifications::fancy_notifications( true );
+
+}
+
+/**
+ * Fancy Notifications
+ *
+ * @deprecated
+ *
+ * @param   boolean  $return  Return or echo.
+ * @return  string            Fancy Notification HTML.
+ */
+function wpsc_fancy_notifications( $return = false ) {
+
+	if ( $return ) {
+		return WPSC_Fancy_Notifications::fancy_notifications( $return );
+	} else {
+		echo WPSC_Fancy_Notifications::fancy_notifications( $return );
+	}
+
+}
+
+/**
+ * Fancy Notification Content
+ *
+ * @deprecated
+ *
+ * @param   array  $cart_messages  Cart messages.
+ * @return  array                  Cart messages.
+ */
+function fancy_notification_content( $cart_messages ) {
+
+	return WPSC_Fancy_Notifications::fancy_notification_content( $cart_messages );
+
+}
