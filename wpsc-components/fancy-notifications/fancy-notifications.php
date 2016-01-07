@@ -58,8 +58,6 @@ class WPSC_Fancy_Notifications {
 	 */
 	public static function fancy_notification_content( $cart_messages ) {
 
-		$siteurl = get_option( 'siteurl' );
-
 		$output = '';
 		foreach ( (array)$cart_messages as $cart_message ) {
 			$output .= '<span>' . $cart_message . '</span><br />';
