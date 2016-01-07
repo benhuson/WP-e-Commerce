@@ -183,9 +183,7 @@ function wpsc_add_to_cart() {
 
 		$output = _wpsc_ajax_get_cart( false, $cart_messages );
 
-		$json_response = $json_response + $output;
-
-		$json_response = apply_filters( 'wpsc_add_to_cart_json_response', $json_response );
+		$json_response = apply_filters( 'wpsc_add_to_cart_json_response', $json_response + $output );
 
 		die( json_encode( $json_response ) );
 	}
