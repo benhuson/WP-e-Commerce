@@ -57,7 +57,7 @@ var WPEC_Fancy_Notifications;
 
 			var fancyNotificationEl = $( '#fancy_notification' );
 
-			if ( typeof( WPSC_SHOW_FANCY_NOTIFICATION ) == 'undefined' ) {
+			if ( typeof WPSC_SHOW_FANCY_NOTIFICATION === 'undefined' ) {
 				WPSC_SHOW_FANCY_NOTIFICATION = true;
 			}
 
