@@ -24,7 +24,7 @@ var WPEC_Fancy_Notifications;
 		wpscAddToCart : function( e ) {
 
 			$( 'div.wpsc_loading_animation' ).css( 'visibility', 'hidden' );
-			WPEC_Fancy_Notifications.fancy_notification( e.form );
+			WPEC_Fancy_Notifications.fancy_notification();
 
 		},
 
@@ -52,8 +52,6 @@ var WPEC_Fancy_Notifications;
 
 		/**
 		 * Fancy Notification
-		 *
-		 * @param  object  parent_form  Form element.
 		 */
 		fancy_notification : function( parent_form ) {
 

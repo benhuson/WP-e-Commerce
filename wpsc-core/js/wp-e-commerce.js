@@ -1347,7 +1347,7 @@ function submit_change_country(){
  *
  * @deprecated  Use WPEC_Fancy_Notifications.fancy_notification() instead.
  *
- * @param  object  parent_form  Form element.
+ * @param  object  parent_form  Deprecated. Form element. Kept for legacy purposes.
  */
 function wpsc_fancy_notification( parent_form ) {
 
@@ -1355,7 +1355,7 @@ function wpsc_fancy_notification( parent_form ) {
 		console.log( 'wpsc_fancy_notification() is deprecated. Use WPEC_Fancy_Notifications.fancy_notification() instead.' );
 	}
 
-	WPEC_Fancy_Notifications.fancy_notification( parent_form );
+	WPEC_Fancy_Notifications.fancy_notification();
 
 }
 
