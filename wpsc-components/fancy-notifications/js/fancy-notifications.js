@@ -53,7 +53,7 @@ var WPEC_Fancy_Notifications;
 		/**
 		 * Fancy Notification
 		 */
-		fancy_notification : function( parent_form ) {
+		fancy_notification : function() {
 
 			var fancyNotificationEl = $( '#fancy_notification' );
 
