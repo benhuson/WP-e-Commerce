@@ -1345,7 +1345,7 @@ function submit_change_country(){
 /**
  * Submit the fancy notifications forms.
  *
- * @deprecated  Use WPEC_Fancy_Notifications.fancy_notification() instead.
+ * @deprecated  Since 4.0. Use WPEC_Fancy_Notifications.fancy_notification() instead.
  *
  * @param  object  parent_form  Deprecated. Form element. Kept for legacy purposes.
  */

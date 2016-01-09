@@ -12,6 +12,8 @@ add_filter( 'wpsc_add_to_cart_json_response', array( 'WPSC_Fancy_Notifications',
 
 /**
  * WP eCommerce Fancy Notifications Class
+ *
+ * @since  4.0
  */
 class WPSC_Fancy_Notifications {
 
@@ -19,6 +21,8 @@ class WPSC_Fancy_Notifications {
 	 * Fancy Notifications
 	 *
 	 * Container HTML for fancy notifications.
+	 *
+	 * @since  4.0
 	 *
 	 * @param   boolean  $return  Return output.
 	 * @return  string            Output.
@@ -53,6 +57,8 @@ class WPSC_Fancy_Notifications {
 	/**
 	 * Fancy Notification Content
 	 *
+	 * @since  4.0
+	 *
 	 * @param   array   $cart_messages  Cart message.
 	 * @return  string                  Fancy notification content.
 	 */
@@ -74,6 +80,8 @@ class WPSC_Fancy_Notifications {
 	 *
 	 * Adds 'fancy_notification' content to JSON response.
 	 *
+	 * @since  4.0
+	 *
 	 * @param   array  $json_response  JSON response.
 	 * @return  array                  Updated JSON response.
 	 */
@@ -89,6 +97,8 @@ class WPSC_Fancy_Notifications {
 
 	/**
 	 * Add Fancy Notifications
+	 *
+	 * @since  4.0
 	 */
 	public static function add_fancy_notifications() {
 
@@ -98,6 +108,8 @@ class WPSC_Fancy_Notifications {
 
 	/**
 	 * Enqueue Styles
+	 *
+	 * @since  4.0
 	 */
 	public static function enqueue_styles() {
 
@@ -107,6 +119,8 @@ class WPSC_Fancy_Notifications {
 
 	/**
 	 * Enqueue Scripts
+	 *
+	 * @since  4.0
 	 */
 	public static function enqueue_scripts() {
 
@@ -116,6 +130,8 @@ class WPSC_Fancy_Notifications {
 
 	/**
 	 * Plugin URL
+	 *
+	 * @since  4.0
 	 *
 	 * @return  string  URL for fancy notifications directory.
 	 */

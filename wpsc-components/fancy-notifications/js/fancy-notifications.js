@@ -1,6 +1,8 @@
 
 /**
  * WP eCommerce Fancy Notifications JS
+ *
+ * @since  4.0
  */
 
 var WPEC_Fancy_Notifications;
@@ -11,6 +13,8 @@ var WPEC_Fancy_Notifications;
 
 		/**
 		 * Move Fancy Notification element to end of HTML body.
+		 *
+		 * @since  4.0
 		 */
 		appendToBody : function() {
 
@@ -20,6 +24,8 @@ var WPEC_Fancy_Notifications;
 
 		/**
 		 * Fancy Notification: Show
+		 *
+		 * @since  4.0
 		 */
 		wpscAddToCart : function( e ) {
 
@@ -30,6 +36,8 @@ var WPEC_Fancy_Notifications;
 
 		/**
 		 * Fancy Notification: Hide
+		 *
+		 * @since  4.0
 		 */
 		wpscAddedToCart : function( e ) {
 
@@ -52,6 +60,8 @@ var WPEC_Fancy_Notifications;
 
 		/**
 		 * Fancy Notification
+		 *
+		 * @since  4.0
 		 */
 		fancy_notification : function() {
 

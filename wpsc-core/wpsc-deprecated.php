@@ -2358,7 +2358,9 @@ function wpsc_duplicate_product_image_process( $child_post, $new_parent_id ) {
 /**
  * Fancy Notifications
  *
- * @deprecated
+ * @deprecated  Since 4.0. Use WPSC_Fancy_Notifications::fancy_notifications() instead.
+ *
+ * @uses  WPSC_Fancy_Notifications  Fancy notifications class.
  *
  * @return  string  Fancy Notification HTML.
  */
@@ -2371,7 +2373,9 @@ function fancy_notifications() {
 /**
  * Fancy Notifications
  *
- * @deprecated
+ * @deprecated  Since 4.0. Use WPSC_Fancy_Notifications::fancy_notifications() instead.
+ *
+ * @uses  WPSC_Fancy_Notifications  Fancy notifications class.
  *
  * @param   boolean  $return  Return or echo.
  * @return  string            Fancy Notification HTML.
@@ -2389,7 +2393,9 @@ function wpsc_fancy_notifications( $return = false ) {
 /**
  * Fancy Notification Content
  *
- * @deprecated
+ * @deprecated  Since 4.0. Use WPSC_Fancy_Notifications::fancy_notification_content() instead.
+ *
+ * @uses  WPSC_Fancy_Notifications  Fancy notifications class.
  *
  * @param   array  $cart_messages  Cart messages.
  * @return  array                  Cart messages.
